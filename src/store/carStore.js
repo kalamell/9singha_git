@@ -18,10 +18,7 @@ const useCarStore = create((set, get) => ({
   submodel: '',
   car: '',
 
-  setApi: async (api_url) => {
-    set({apiurl: api_url})
-  },
-
+  
   setBrand: async (brand) => {
     set({ brand: brand });
   },

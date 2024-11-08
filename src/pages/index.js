@@ -10,7 +10,7 @@ import { fetchData } from "@/lib/api";
 import Warning from "../app/components/warning";
 import useCompareStore from "@/store/compareStore";
 
-export default function Home({ api_url }) {
+export default function Home() {
   const [selectedCarBrand, setSelectedCarBrand] = useState(null);
   const [selectedCarManufacture, setSelectedManufacture] = useState(null);
   const [selectedCarModel, setSelectedCarModel] = useState(null);
@@ -48,7 +48,7 @@ export default function Home({ api_url }) {
   
 
   useEffect(() => {
-    setApi(api_url);
+  
     fetchCarBrands();
     clearItems();
     //fetchData('/api/car/brands', { method: 'POST'});
@@ -383,10 +383,3 @@ export default function Home({ api_url }) {
   );
 }
 
-export async function getStaticProps() {
-  return {
-    props: {
-      api_url: process.env.ENDPOINT_API_9SINGHA,
-    },
-  };
-}
