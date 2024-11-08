@@ -15,7 +15,10 @@ export default function Payment({ appid }) {
     const router = useRouter();
 
   const [paymentOption, setPaymentOption] = useState("");
+
   const hasFetched = useRef(false);
+  const intervalRef = useRef(null);
+
   const [isLoading, setIsLoading] = useState(true);
   const [isSending, setIsSending] = useState(false);
 
@@ -86,9 +89,11 @@ export default function Payment({ appid }) {
   }, [formData]);
 
   useEffect(() => {
-    setInterval(() => {
-        fetchData();
+    intervalRef.current = setInterval(() => {
+      fetchData();
     }, 5000);
+
+    return () => clearInterval(intervalRef.current); // Clear on component unmount
   }, []);
 
 
