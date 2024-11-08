@@ -5,7 +5,7 @@ export default async function handler(req, res) {
       
       try {
         
-        const response = await axios.post(`${process.env.ENDPOINT_API_9SINGHA}/api/user/verify`, {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_API_9SINGHA}/api/user/verify`, {
           code, ref
         },
         {

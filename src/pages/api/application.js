@@ -7,7 +7,7 @@ export default async function handler(req, res) {
             if (req.method === 'POST') {
                 try {
                     const { car_id, package_id, token } = req.body;
-                    const response = await axios.post(`${process.env.ENDPOINT_API_9SINGHA}/api/appplication`, { 
+                    const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_API_9SINGHA}/api/appplication`, { 
                         car_id, package_id
                      }, {
                         headers: {

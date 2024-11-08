@@ -27,7 +27,7 @@ export default function Navbar() {
     if (!useStore.getState().user) {
       router.push('/login');
     }
-  }, [router]);
+  }, []);
 
   const logOut = () => {
     setUser(null);

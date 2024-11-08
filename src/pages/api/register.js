@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       const { name, mobile, email, password, password_confirmation } = req.body;
       try {
-        const response = await axios.post(`${process.env.ENDPOINT_API_9SINGHA}/api/register`, {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_API_9SINGHA}/api/register`, {
           name,
           mobile,
           email,

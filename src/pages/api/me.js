@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       const { token } = req.body;
       try {
-        const response = await axios.get(`${process.env.ENDPOINT_API_9SINGHA}/api/user`, {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT_API_9SINGHA}/api/user`, {
             headers: {
                 Authorization: `Bearer ${token}` // Use the token
             }
