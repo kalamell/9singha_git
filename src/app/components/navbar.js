@@ -16,19 +16,27 @@ export default function Navbar() {
   const selectRef = useRef(null);
   useClickOutside(selectRef, closeDropdown);
 
+
+  const router = useRouter();
+
   const handleSelect = () => {
     closeDropdown();
   };
+
+  useEffect(() => {
+    if (!useStore.getState().user) {
+      router.push('/login');
+    }
+  }, [router]);
 
   const logOut = () => {
     setUser(null);
     setToken(null);
     setCom(null);
     
-    router.push("/");
+    //router.push("/");
   };
 
-  const router = useRouter();
 
   useEffect(() => {
     if (
