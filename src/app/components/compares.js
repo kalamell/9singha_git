@@ -118,7 +118,7 @@ export default function Compares({ car, data, items, }) {
                     />*/}
                     <div className="flex flex-col gap-1.5 max-xl:items-center">
                       <p className="font-athitiSemiBold text-lg xl:h-[22px] text-[#111827]">
-                      { `${car.brand } `}
+                      { `${car?.brand } `}
                       
                       </p>
                       <p className="font-athitiSemiBold text-lg leading-[22px] text-[#111827]">
