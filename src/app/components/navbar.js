@@ -10,6 +10,7 @@ export default function Navbar() {
   const [navMoblie, setnavMoblie] = useState(false);
   const [navDesktop, setnavDesktop] = useState(false);
   const [login, setLogin] = useState(true);
+  const [out, setOut] = useState(false);
 
   const closeDropdown = () => setnavDesktop(!navDesktop);
 
@@ -24,15 +25,20 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    if (!useStore.getState().user) {
-      router.push('/login');
+    if (out) {
+      if (!useStore.getState().user) {
+        setOut(false);
+        router.push('/login');
+      }
+      
     }
-  }, []);
+  }, [out]);
 
   const logOut = () => {
     setUser(null);
     setToken(null);
     setCom(null);
+    setOut(true);
     
     //router.push("/");
   };

@@ -213,7 +213,7 @@ export default function Compares({ car, data, items, }) {
                   <Link
                     href="javascript:void(0);"
                     onClick={() => {
-                      handleSaleNow(carid, item._id.$oid, 'normal');
+                      handleSaleNow(car?._id, item._id.$oid, 'normal');
                     }}
                     className="block rounded-[50px] font-athitiSemiBold text-lg max-lg:text-[18px] bg-[#984333] text-white leading-[24px] py-[13px] px-1.5"
                   >
@@ -226,7 +226,7 @@ export default function Compares({ car, data, items, }) {
                   {<Link
                     href="javascript:void(0);"
                     onClick={() => {
-                      handleSaleNow(carid, item._id.$oid, 'quotation');
+                      handleSaleNow(car?._id, item._id.$oid, 'quotation');
                     }}
                     className="flex justify-center items-center rounded-[50px] font-athitiSemiBold text-lg bg-[#fee042] text-[#984333] leading-[24px] py-2.5 px-1.5"
                   >
