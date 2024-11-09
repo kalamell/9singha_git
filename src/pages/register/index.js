@@ -392,6 +392,7 @@ export default function Register() {
                 value={password}
                  placeholderBottom="โปรดกรอกรหัสผ่าน"
                  showCheck={true}
+                 maxlength={10}
               />
 
               <InputCheck
@@ -405,6 +406,7 @@ export default function Register() {
                 value={cfpassword}
                 showCheck={true}
                 password={password}
+                maxlength={10}
               />
               
               
