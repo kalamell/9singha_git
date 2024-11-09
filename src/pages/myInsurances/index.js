@@ -48,13 +48,11 @@ export default function Insurances() {
           setData(mydata);
         } else {
           //alert('false');
-          setIsOpenWarning(true);
-          setTextWarning('กรุณา Login ใหม่อีกครั้ง');
-          setTimeout(() => {
-            setUser(null);
-            setToken(null);
-            router.push('/login');
-          }, 800);
+          //setIsOpenWarning(true);
+          //setTextWarning('กรุณา Login ใหม่อีกครั้ง');
+          setUser(null);
+          setToken(null);
+          router.push('/login');
         }
       } catch (e) {
         console.log(e);

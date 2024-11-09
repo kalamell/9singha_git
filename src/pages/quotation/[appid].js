@@ -222,17 +222,17 @@ function BlankPage( { appid }) {
                   
                   <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>ชื่อ</p>
-                    <p>: {`${formData.data.user.agent.name.title} ${formData.data.user.agent.name.first} ${formData.data.user.agent.name.last}`}</p>
+                    <p>: {`${formData.data?.user?.agent?.name?.title} ${formData.data?.user?.agent?.name?.first} ${formData?.data?.user?.agent?.name?.last}`}</p>
                   </div>
 
                   <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>เบอร์โทร</p>
-                    <p>: {`${formData.data.user.agent.mobile}`}</p>
+                    <p>: {`${formData.data?.user?.agent?.mobile}`}</p>
                   </div>
 
                   <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>เลขที่ใบอนุญาต</p>
-                    <p>: {`${formData.data.user.agent.oic.card}`}</p>
+                    <p>: {`${formData.data?.user?.agent?.oic?.card}`}</p>
                   </div>
 
 
