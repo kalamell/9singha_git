@@ -127,7 +127,7 @@ export default function Home() {
       <div className="bg-singha max-xl:bg-[length:auto_60%]  py-9">
         <div className="container mx-auto text-center">
           <h1 className="font-athitiBold max-lg:text-[32px] max-lg:leading-[41px] max-lg:pb-6 leading-[48px] text-4xl leading-[48px] max-lg:leading-[42px]  ">
-            <span className="font-sarabun font-bold">๙</span> สิงห์โบรกเกอร์ <br className="lg:hidden max-lg:block" />
+            <span className="font-nineBold font-bold">๙</span> สิงห์โบรกเกอร์ <br className="lg:hidden max-lg:block" />
             บริการด้านการประกันภัย
           </h1>
           <p className="font-athitiMedium text-xl leading-[30px] max-lg:pb-5">
