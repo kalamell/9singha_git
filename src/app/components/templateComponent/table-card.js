@@ -20,18 +20,18 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
           {
             type == 'thirdparty' && (
               <div className="border-b last:border-0">
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>1) ความเสียหายต่อชีวิต ร่างกาย ต่อ คน</p>
                   <p>{ Number(props.health_per_person).toLocaleString() } บาท</p>
                 </div>
 
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>2) ความเสียหายต่อชีวิต ร่างกาย ค่อ ครั้ง</p>
                   <p>{ Number(props.health_per_accident).toLocaleString() } บาท</p>
                 </div>
 
 
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>3) ความเสียหายต่อทรัพย์สิน ต่อ ครั้ง</p>
                   <p>{ Number(props.property).toLocaleString() } บาท</p>
                 </div>
@@ -42,7 +42,7 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
           {
             type == 'vehicle' && (
               <div className="border-b last:border-0">
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>1) ความเสียหายต่อรถยนต์
                   </p>
                   <p>{ props.damage == null ? 'ตามทุนประกัน' : 
@@ -50,13 +50,13 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
                     Number(props.damage).toLocaleString() + ' บาท'} </p>
                 </div>
 
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>• ความเสียหายส่วนแรก</p>
                   <p>{ props.deductible ? Number(props.deductible).toLocaleString() + ' บาท' : 'ไม่มี' }</p>
                 </div>
 
 
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>2) ความรับผิดชอบรถยนต์สูญหาย / ไฟไหม้</p>
                   <p>{ props.lossfire == null ? 'ตามทุนประกัน' : 
                     props.lossfire == 0 ? 'ไม่คุ้มครอง' :
@@ -70,15 +70,15 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
             type == 'additional' && (
               <>
               <div className="border-b last:border-0">
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>1) อุบัติเหตุส่วนบุคคล</p>
                   <p className="text-[#6B7280]"></p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2 print:flex print:flex-row">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้ขับขี่ ${props.pa.driver} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.pa.expenses).toLocaleString() } บาท</p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2 print:flex print:flex-row">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้โดยสาร ${props.pa.passenger} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.pa.expenses).toLocaleString() } บาท</p>
                 </div>
@@ -86,15 +86,15 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
 
               <div className="border-b last:border-0">
 
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>2) ค่ารักษาพยาบาล</p>
                   <p className="text-[#6B7280]"></p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2 print:flex print:flex-row">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้ขับขี่ ${props.medical.driver} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.medical.expenses).toLocaleString() } บาท</p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2 print:flex print:flex-row">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้โดยสาร ${props.medical.passenger} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.medical.expenses).toLocaleString() } บาท</p>
                 </div>
@@ -102,7 +102,7 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
 
               <div className="border-b last:border-0">
 
-                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2">
+                <div className="flex max-md:flex-col justify-between py-4 px-6 border-b last:border-0 md:gap-[20px] print:p-2 print:flex print:flex-row">
                   <p>3) การประกันตัวผู้ขับขี่</p>
                   <p className="text-[#6B7280]">{ Number(props.lg).toLocaleString()} บาท</p>
                 </div>

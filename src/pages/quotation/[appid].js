@@ -187,7 +187,7 @@ function BlankPage( { appid }) {
             <>
             <div className="p-[24px] max-md:px-[10px] flex flex-col gap-y-[12px]  print:p-0">
 
-              <div className="flex max-md:flex-col gap-x-4 print:gap-0">
+              <div className="flex max-md:flex-col gap-x-4 print:gap-0 print:flex print:flex-row">
                 <div className="w-full">
 
                   <div className="flex flex-row items-center gap-x-4 mb-3">
