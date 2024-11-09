@@ -21,6 +21,7 @@ const InputCheck = ({
   errorShowLabel = '',
   Ref,
   showCheck = false,
+  password= false
 }) => {
   const [_value, setValue] = useState(initialValue);
   const [showPassword, setShowPassword] = useState(false);
@@ -58,7 +59,7 @@ const InputCheck = ({
   });
 
   const passwordRequirements = {
-    length: (value) => value.length >= 6 && value.length <= 8,
+    length: (value) => value.length >= 6 && value.length <= 10,
     uppercase: (value) => /[A-Z]/.test(value),
     lowercase: (value) => /[a-z]/.test(value),
     number: (value) => /\d/.test(value),
@@ -72,6 +73,7 @@ const InputCheck = ({
       lowercase: passwordRequirements.lowercase(value),
       number: passwordRequirements.number(value),
       specialChar: passwordRequirements.specialChar(value),
+      passwordmatch: value === password,
     });
   };
 
@@ -181,6 +183,13 @@ const InputCheck = ({
             <li className={checks.specialChar ? "text-green-600" : "text-red-600"}>
               • มีอักขระพิเศษ (@ $ ! % * # ? &)
             </li>
+            {/*
+              password && (
+                <li className={checks.passwordmatch ? "text-green-600" : "text-red-600"}>
+                  • รหัสผ่านตรงกัน 
+                </li>
+              )
+            */}
           </ul>
         </div>
       )}

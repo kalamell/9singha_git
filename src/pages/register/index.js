@@ -404,6 +404,7 @@ export default function Register() {
                 name="cfpassword"
                 value={cfpassword}
                 showCheck={true}
+                password={password}
               />
               
               
