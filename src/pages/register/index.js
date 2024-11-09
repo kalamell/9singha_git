@@ -407,27 +407,7 @@ export default function Register() {
               />
               
               
-              
-              {/*<Checkbox 
-              onChange={() => {
-                
-                if (accept == '') {
-                  console.log('accept not defain');
-                  setAccept(true);
-                  setValidateAccept(true);
-                } else {
-                  
-                  setAccept(false);
-                  setValidateAccept(false);
-                }
-
-                
-              }}
-              value={accept}
-              valid={validateAccept} 
-              text="ฉันได้อ่านและยอมรับใน <a href='/term-and-conditions' target='_blank' style='text-decoration: underline;'>ข้อกำหนดและเงื่อนไข</a> และ <a href='/privacy-policy' target='_blank' style='text-decoration: underline;'>นโยบายความเป็นส่วนตัว</a> " />*/}
-
-
+            
             <div className="flex gap-x-2">
               <label className="flex gap-x-2">
                 <input
