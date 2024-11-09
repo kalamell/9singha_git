@@ -751,7 +751,7 @@ export default function Agent() {
           </p>
           <div className="bg-[#ffffff] p-[24px] rounded-[12px] flex flex-col gap-y-[24px] drop-shadow-[0_1px_2px_rgba(107,114,128,0.2)]">
             <FormCard
-              title="ข้อมูลตัวแทน"
+              title="ข้อมูลสมาชิก"
               text="left"
               bgTitle="#FDE68A"
               bgContent="#FFFBEB"
