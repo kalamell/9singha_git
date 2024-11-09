@@ -166,8 +166,10 @@ const InputCheck = ({
       ) : null}
 
     {(type === "password" && showCheck) && (
-        <div className="mt-2">
+        <div className="">
           <ul className="text-sm ml-1 font-athitiMedium">
+            {name == 'password' && (
+              <>
             <li className={checks.length ? "text-green-600" : "text-red-600"}>
               • รหัสผ่านยาว 6-10 ตัวอักษร
             </li>
@@ -183,13 +185,15 @@ const InputCheck = ({
             <li className={checks.specialChar ? "text-green-600" : "text-red-600"}>
               • มีอักขระพิเศษ (@ $ ! % * # ? &)
             </li>
-            {/*
-              password && (
+            </>
+            )}
+            {
+              (name == 'cfpassword' && password) && (
                 <li className={checks.passwordmatch ? "text-green-600" : "text-red-600"}>
                   • รหัสผ่านตรงกัน 
                 </li>
               )
-            */}
+            }
           </ul>
         </div>
       )}
