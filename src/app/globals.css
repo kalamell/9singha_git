@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@600;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap');
+
+
+
+@layer utilities {
+  .font-sarabunSemibold {
+    @apply font-sarabun font-semibold;
+  }
+
+  .font-sarabunBold {
+    @apply font-sarabun font-bold;
+  }
+}
 
 
 
@@ -113,22 +126,6 @@ body {
   font-weight: 500;
   src: url('https://fonts.gstatic.com/s/sarabun/v5/DtVhJx26TKEr37cUHzxArQ.woff2') format('woff2');
 }
-
-
-@font-face {
-  font-family: 'Sarabun-SemiBold';
-  font-style: bold;
-  font-weight: 600;
-  src: url('https://fonts.gstatic.com/s/sarabun/v5/DtVhJx26TKEr37cUHzxArQ.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Sarabun-Bold';
-  font-style: bold;
-  font-weight: 700;
-  src: url('https://fonts.gstatic.com/s/sarabun/v5/DtVhJx26TKEr37cUOzxArQ.woff2') format('woff2');
-}
-
 
 select {
   color: #888291;

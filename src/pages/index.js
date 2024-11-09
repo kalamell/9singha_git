@@ -127,7 +127,7 @@ export default function Home() {
       <div className="bg-singha max-xl:bg-[length:auto_60%]  py-9">
         <div className="container mx-auto text-center">
           <h1 className="font-athitiBold max-lg:text-[32px] max-lg:leading-[41px] max-lg:pb-6 leading-[48px] text-4xl leading-[48px] max-lg:leading-[42px]  ">
-            <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์ <br className="lg:hidden max-lg:block" />
+            <span className="font-sarabun font-bold">๙</span> สิงห์โบรกเกอร์ <br className="lg:hidden max-lg:block" />
             บริการด้านการประกันภัย
           </h1>
           <p className="font-athitiMedium text-xl leading-[30px] max-lg:pb-5">
@@ -182,7 +182,7 @@ export default function Home() {
           <div className="container mx-auto grid grid-cols-[260px_auto] max-lg:grid-cols-1 items-center gap-y-3">
             <div className="flex flex-col gap-y-4 max-lg:text-center">
               <p className="font-athitiBold text-3xl max-lg:text-[26px] leading-[40px] max-lg:leading-[30px]">
-              <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์
+              <span className="font-sarabun font-bold">๙</span> สิงห์โบรกเกอร์
                 <br /> <span className="text-[#808291]">สินค้าประกันภัย</span>
               </p>
               <p className="font-athitiMedium text-[#808291] text-lg leading-[22px]">
@@ -270,7 +270,7 @@ export default function Home() {
               <span className="font-nineSemiBold">๙</span> สิงห์โบรกเกอร์ สมาชิก
               </p>*/}
               <p className="font-athitiBold text-[#111827] text-3xl max-lg:text-[26px] max-lg:leading-[30px] leading-[40px]">
-                สมัครสมาชิก <br className="lg:hidden max-md:hidden" /><span className="font-nineBold mr-2">๙</span> 
+                สมัครสมาชิก <br className="lg:hidden max-md:hidden" /><span className="font-sarabun font-bold mr-2">๙</span> 
                 สิงห์โบรกเกอร์
               </p>
               <p className="font-athitiMedium text-[#808291] text-lg leading-[22px] pt-5">

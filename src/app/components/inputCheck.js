@@ -123,7 +123,7 @@ const InputCheck = ({
           <button
             type="button"
             onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute top-[50%] right-[13px] transform -translate-y-1/2"
+            className={`${ valid === false ? "right-[35px]" : "right-[13px]" }  absolute top-[50%] transform -translate-y-1/2`}
           >
             {showPassword ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
