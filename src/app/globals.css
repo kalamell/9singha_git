@@ -24,6 +24,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #fee042;
+  
 }
 
 .filter-984333:hover img {
@@ -181,6 +182,9 @@ tspan, .apexcharts-legend-text {
   column-gap: 5px;
 }
 
+@media print {
+  body {-webkit-print-color-adjust: exact;}
+}
 
   
 

@@ -191,20 +191,20 @@ function BlankPage( { appid }) {
                 <div className="w-full">
 
                   <div className="flex flex-row items-center gap-x-4 mb-3">
-                    <p className="font-athitiSemiBold text-[22px] leading-[30px] print:text-[18px]">
+                    <p className="font-athitiSemiBold text-[22px] leading-[30px] print:text-[18px] ">
                       ข้อมูลผู้เอาประกัน
                     </p>
                     <hr className="h-px flex-grow bg-[#D1D5DB] border-0 rounded" />
                   </div>
-                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>วันที่</p>
                     <p>: {formatDateAndAddYear(formData.data.created_at).formattedDate} </p>
                   </div>
-                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>ชื่อลูกค้า</p>
                     <p>: {`${formData.data.covered.name.title} ${formData.data.covered.name.first} ${formData.data.covered.name.last}`}</p>
                   </div>
-                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>เบอร์โทร</p>
                     <p>: {formData.data.covered.mobile}</p>
                   </div>
@@ -220,17 +220,17 @@ function BlankPage( { appid }) {
                     <hr className="h-px flex-grow bg-[#D1D5DB] border-0 rounded" />
                   </div>
                   
-                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>ชื่อ</p>
                     <p>: {`${formData.data.user.agent.name.title} ${formData.data.user.agent.name.first} ${formData.data.user.agent.name.last}`}</p>
                   </div>
 
-                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>เบอร์โทร</p>
                     <p>: {`${formData.data.user.agent.mobile}`}</p>
                   </div>
 
-                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+                  <div className="grid grid-cols-[200px_auto] mb-3 font-athitiLight  text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                     <p>เลขที่ใบอนุญาต</p>
                     <p>: {`${formData.data.user.agent.oic.card}`}</p>
                   </div>
@@ -253,12 +253,12 @@ function BlankPage( { appid }) {
                 <hr className="h-px flex-grow bg-[#D1D5DB] border-0 rounded" />
               </div>
 
-              <div className="flex max-md:flex-col font-athitiLight justify-between text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+              <div className="flex max-md:flex-col font-athitiLight justify-between text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                 <p>บจก.ประกันคุ้มภัย ชั้น {filterclass[formData.data.package?.class]} ซ่อม{formData.data.package?.garage == "No" ? "อู่" : "ห้าง"}</p>
                 <p>{ Number(formData.data.package?.price.sum.toFixed(2)).toLocaleString()} บาท</p>
               </div>
               
-              <div className="flex max-md:flex-col font-athitiLight justify-between text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px]">
+              <div className="flex max-md:flex-col font-athitiLight justify-between text-[18px] leading-[24px] print:grid-cols-[100px_auto] print:text-[14px] print:leading-[14px]">
                 <p>ส่วนลด</p>
                 <p>{`${formData.data.discount.toFixed(2)}`} บาท</p>
               </div>
@@ -283,7 +283,7 @@ function BlankPage( { appid }) {
                   <p>ยอดเงินรวม</p>
                   <p>{calculatePrice()} บาท</p>
                 </div>
-                <p className="font-athitiLight text-[#808291]">
+                <p className="font-athitiLight text-[#808291] print:text-[18px]">
                   (รวมภาษีมูลค่าเพิ่ม 7% แล้ว)
                 </p>
               </div>
@@ -323,7 +323,7 @@ function BlankPage( { appid }) {
                 />
               </div>
               <hr class="h-px flex-grow bg-[#D1D5DB] border-0 rounded mt-[26px] mb-[12px]" />
-              <div className="flex flex-col gap-[6px] text-center font-athitiMedium text-[18px] leading-[24px]">
+              <div className="flex flex-col gap-[6px] text-center font-athitiMedium text-[18px] leading-[24px] print:text-[14px]">
                 
                 <p>บริษัท <span className="font-nineMedium">๙</span> สิงห์โบรกเกอร์ จำกัด</p>
                 <p>

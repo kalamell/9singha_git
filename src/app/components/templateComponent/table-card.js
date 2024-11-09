@@ -5,12 +5,12 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
 
   return (
     <div>
-      <p className="font-athitiSemiBold text-[18px] leading-[22px] underline mb-[12px] print:text-[16px]">
+      <p className="font-athitiSemiBold text-[18px] leading-[22px] underline mb-[12px] print:text-[14px]">
         {title}
       </p>
-      <div className="font-athitiMedium drop-shadow-[0_1px_2px_rgba(107,114,128,0.2)] rounded-t-lg print:text-[14px]">
+      <div className="font-athitiMedium drop-shadow-[0_1px_2px_rgba(107,114,128,0.2)] rounded-t-lg print:text-[12px]">
         <div
-          className={`flex  justify-between bg-[${bgTitle}] py-3 px-6  rounded-t-lg print:p-2`}
+          className={`flex  justify-between bg-[${bgTitle}] py-3 px-6  rounded-t-lg print:p-2 `}
         >
           <p>ความคุ้มครอง</p>
           <p className="max-md:hidden">ทุนประกัน (บาท)</p>
@@ -74,11 +74,11 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
                   <p>1) อุบัติเหตุส่วนบุคคล</p>
                   <p className="text-[#6B7280]"></p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้ขับขี่ ${props.pa.driver} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.pa.expenses).toLocaleString() } บาท</p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้โดยสาร ${props.pa.passenger} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.pa.expenses).toLocaleString() } บาท</p>
                 </div>
@@ -90,11 +90,11 @@ export default function TableCard({ props, title, bgTitle, bgContent, type }) {
                   <p>2) ค่ารักษาพยาบาล</p>
                   <p className="text-[#6B7280]"></p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้ขับขี่ ${props.medical.driver} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.medical.expenses).toLocaleString() } บาท</p>
                 </div>
-                <div className="flex max-md:flex-col justify-between py-4 px-6">
+                <div className="flex max-md:flex-col justify-between py-4 px-6  print:p-2">
                     <p>{`• เสียชีวิต สูญเสียอวัยวะ ทุพพลภาพถาวร (จำนวนผู้โดยสาร ${props.medical.passenger} คน)`}</p>
                     <p className="text-[#6B7280]">{ Number(props.medical.expenses).toLocaleString() } บาท</p>
                 </div>
