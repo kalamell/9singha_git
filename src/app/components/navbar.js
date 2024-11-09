@@ -28,7 +28,7 @@ export default function Navbar() {
     if (out) {
       if (!useStore.getState().user) {
         setOut(false);
-        router.push('/login');
+        router.push('/');
       }
       
     }

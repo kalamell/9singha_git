@@ -1443,6 +1443,7 @@ export default function ComparesCar({ appid }) {
                           value={formData.covered?.email}
                           valid={!errors1["covered.email"]}
                           errorShowLabel="กรุณากรอกอีเมลให้ถูกต้อง"
+                          onKeyPress
                           type="email"
                         />
 

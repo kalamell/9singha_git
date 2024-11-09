@@ -871,6 +871,7 @@ export default function Agent() {
                   }}
                   value={formData.email}
                   errorShowLabel="กรุณากรอกอีเมลให้ถูกต้อง"
+                  onKeyPress
                   type="email"
                 />
               </div>

@@ -379,6 +379,7 @@ export default function Register() {
                 name="email"
                 valid={validateEmail}
                 onChange={handleEmail}
+                onKeyPress
                 value={email}
               />
 

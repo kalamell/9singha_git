@@ -70,7 +70,11 @@ const InputCheck = ({
                   if (maxlength == 3) {
                       Functions.handleKeyPress(event, 'thai');
                   } else {
-                    Functions.handleKeyPress(event);
+                    if (type == "email") {
+                      Functions.handleKeyPress(event, 'email');
+                    } else {
+                      Functions.handleKeyPress(event);
+                    }
                   }
                 }
               : null
