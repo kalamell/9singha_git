@@ -57,7 +57,7 @@ export default function agentRegistered() {
                         priority={true}
                     />
                     <p className="font-athitiSemiBold text-center text-[22px] leading-[30px]">
-                    ลงทะเบียนตัวแทนเรียบร้อย
+                    ลงทะเบียนสมาชิกเรียบร้อย
                     </p>
                     <p className="font-athitiSemiBold text-[22px] leading-[30px]">
                     รอเจ้าหน้าที่ตรวจสอบ
