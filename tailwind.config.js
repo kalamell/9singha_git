@@ -17,11 +17,7 @@ module.exports = {
       },
       screens: {
         'print': { 'raw': 'print' },
-      },
-      fontFamily: {
-        sarabun: ['Sarabun', 'sans-serif'],
       }
-
     },
     fontFamily: {
       athitiLight: ["Athiti-Light", "sans-serif"],
@@ -29,7 +25,8 @@ module.exports = {
       athitiRegular: ["Athiti-Regular", "sans-serif"],
       athitiMedium: ["Athiti-Medium", "sans-serif"],
       athitiBold: ["Athiti-Bold", "sans-serif"],
-      athitiSemiBold: ["Athiti-SemiBold", "sans-serif"]
+      athitiSemiBold: ["Athiti-SemiBold", "sans-serif"],
+      sarabun: ['Sarabun', 'sans-serif'],
     },
   },
   plugins: [],
