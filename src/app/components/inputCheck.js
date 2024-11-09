@@ -19,7 +19,8 @@ const InputCheck = ({
   ref,
   min,
   errorShowLabel = '',
-  Ref
+  Ref,
+  showCheck = false,
 }) => {
   const [_value, setValue] = useState(initialValue);
   const [showPassword, setShowPassword] = useState(false);
@@ -36,12 +37,42 @@ const InputCheck = ({
     return maxAgeDate.toISOString().split('T')[0];
   };
 
+  
   const handleChange = (event) => {
     const newValue = event.target.value;
     setValue(newValue);
+    if (type === "password") {
+      handlePasswordChange(newValue);
+    }
     if (onChange) {
       onChange(newValue);
     }
+  };
+
+  const [checks, setChecks] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    specialChar: false,
+  });
+
+  const passwordRequirements = {
+    length: (value) => value.length >= 6 && value.length <= 8,
+    uppercase: (value) => /[A-Z]/.test(value),
+    lowercase: (value) => /[a-z]/.test(value),
+    number: (value) => /\d/.test(value),
+    specialChar: (value) => /[@$!%*#?&]/.test(value)
+  };
+
+  const handlePasswordChange = (value) => {
+    setChecks({
+      length: passwordRequirements.length(value),
+      uppercase: passwordRequirements.uppercase(value),
+      lowercase: passwordRequirements.lowercase(value),
+      number: passwordRequirements.number(value),
+      specialChar: passwordRequirements.specialChar(value),
+    });
   };
 
   return (
@@ -131,6 +162,29 @@ const InputCheck = ({
           {errorShowLabel !== '' && valid === false ? errorShowLabel : placeholderBottom}
         </p>
       ) : null}
+
+    {(type === "password" && showCheck) && (
+        <div className="mt-2">
+          <ul className="text-sm ml-1 font-athitiMedium">
+            <li className={checks.length ? "text-green-600" : "text-red-600"}>
+              • รหัสผ่านยาว 6-10 ตัวอักษร
+            </li>
+            <li className={checks.uppercase ? "text-green-600" : "text-red-600"}>
+              • ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ (A-Z)
+            </li>
+            <li className={checks.lowercase ? "text-green-600" : "text-red-600"}>
+              • ตัวอักษรภาษาอังกฤษพิมพ์เล็ก(a-z)
+            </li>
+            <li className={checks.number ? "text-green-600" : "text-red-600"}>
+              • มีตัวเลข (0-9) 
+            </li>
+            <li className={checks.specialChar ? "text-green-600" : "text-red-600"}>
+              • มีอักขระพิเศษ (@ $ ! % * # ? &)
+            </li>
+          </ul>
+        </div>
+      )}
+
     </div>
   );
 };

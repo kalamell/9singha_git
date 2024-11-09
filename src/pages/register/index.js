@@ -391,29 +391,19 @@ export default function Register() {
                 name="password"
                 value={password}
                  placeholderBottom="โปรดกรอกรหัสผ่าน"
+                 showCheck={true}
               />
 
               <InputCheck
                 type="password"
                 title="ยืนยันรหัสผ่าน"
                 placeholder=""
-                placeholderBottom={
-                  <>
-                  
-                    โปรดกรอกรหัสผ่านยาว 6-10 ตัวอักษร
-                    <br />
-                    มีตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ และพิมพ์เล็ก
-                    <br className="md:hidden" />
-                    (A-Z, a-z)
-                    <br className="max-md:hidden" />
-                    มีตัวเลข (0-9) และอักขระพิเศษ <br className="md:hidden" />
-                    (@ $ ! % * # ? &)
-                  </>
-                }
+                placeholderBottom="โปรดกรอกรหัสผ่าน"
                 valid={validateCfPassword}
                 onChange={handleCfPassword}
                 name="cfpassword"
                 value={cfpassword}
+                showCheck={true}
               />
               
               
