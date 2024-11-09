@@ -169,7 +169,7 @@ function BlankPage( { appid }) {
             alt="logo"
             priority={true}
             quality={100}
-            className="mx-auto mb-[6px]"
+            className="mx-auto mb-[6px] print:w-[100px]"
           />
         </div>
 
@@ -276,19 +276,19 @@ function BlankPage( { appid }) {
               </div>
               */}
 
-              <hr className="h-px bg-[#F8F8F8] border-0" />
+              <hr className="h-px bg-[#F8F8F8] border-0 print:hidden" />
 
               <div>
                 <div className="flex font-athitiSemiBold  justify-between text-[22px] leading-[30px] print:text-[18px]">
                   <p>ยอดเงินรวม</p>
                   <p>{calculatePrice()} บาท</p>
                 </div>
-                <p className="font-athitiLight text-[#808291] print:text-[18px]">
+                <p className="font-athitiLight text-[#808291] print:text-[14px]">
                   (รวมภาษีมูลค่าเพิ่ม 7% แล้ว)
                 </p>
               </div>
 
-              <hr className="h-px bg-[#F8F8F8] border-0" />
+              <hr className="h-px bg-[#F8F8F8] border-0 print:hidden" />
 
               <div className="flex flex-row items-center gap-x-4">
                 <p className="font-athitiSemiBold text-[22px] leading-[30px] print:text-[18px]">
