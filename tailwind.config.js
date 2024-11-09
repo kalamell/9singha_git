@@ -14,11 +14,8 @@ module.exports = {
       },
       screens: {
         mp: "1025px",
-      },
-      screens: {
-        'print': { 'raw': 'print' },
+        
       }
-
     },
     fontFamily: {
       athitiLight: ["Athiti-Light", "sans-serif"],
