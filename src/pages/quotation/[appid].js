@@ -325,7 +325,7 @@ function BlankPage( { appid }) {
               <hr class="h-px flex-grow bg-[#D1D5DB] border-0 rounded mt-[26px] mb-[12px]" />
               <div className="flex flex-col gap-[6px] text-center font-athitiMedium text-[18px] leading-[24px] print:text-[14px]">
                 
-                <p>บริษัท <span className="font-sarabun font-semibold">๙</span> สิงห์โบรกเกอร์ จำกัด</p>
+                <p>บริษัท <span className="font-nineMedium">๙</span> สิงห์โบรกเกอร์ จำกัด</p>
                 <p>
                   48/13 ชั้น 1,6 ซอยรุ่งเรือง ถนนรัชดาภิเษก แขวงสามเสนนอก
                   เขตห้วยขวาง กรุงเทพมหานคร

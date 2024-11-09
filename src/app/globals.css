@@ -110,18 +110,17 @@ body {
 
 @font-face {
   font-family: "Sarabun-Medium";
-  src: url("./assets/fonts/Sarabun/Sarabun-Medium.ttf") format("truetype");
+  src: url(./assets/fonts/Sarabun/Sarabun-Medium.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Sarabun-Bold";
-  src: url("./assets/fonts/Sarabun/Sarabun-Bold.ttf") format("truetype");
-  font-weight: 900;
+  src: url(./assets/fonts/Sarabun/Sarabun-ExtraBold.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Sarabun-SemiBold";
-  src: url("./assets/fonts/Sarabun/Sarabun-SemiBold.ttf") format("truetype");
+  src: url(./assets/fonts/Sarabun/Sarabun-SemiBold.ttf) format("truetype");
 
 }
 
