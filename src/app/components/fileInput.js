@@ -67,7 +67,7 @@ export default function StyledFileInput({
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="ml-3 absolute top-[50%] right-[13px] mt-[-8px]"
+                  className="ml-3 absolute top-[50%] right-[120px] mt-[-8px]"
                 >
                   <path
                     fillRule="evenodd"

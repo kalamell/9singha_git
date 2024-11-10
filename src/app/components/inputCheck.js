@@ -59,7 +59,7 @@ const InputCheck = ({
   });
 
   const passwordRequirements = {
-    length: (value) => value.length >= 6 && value.length <= 10,
+    length: (value) => value.length >= 8 && value.length <= 25,
     uppercase: (value) => /[A-Z]/.test(value),
     lowercase: (value) => /[a-z]/.test(value),
     number: (value) => /\d/.test(value),
@@ -171,7 +171,7 @@ const InputCheck = ({
             {name == 'password' && (
               <>
             <li className={checks.length ? "text-green-600" : "text-red-600"}>
-              • รหัสผ่านยาว 6-10 ตัวอักษร
+              • รหัสผ่าน 8 ตัวอักษรขึ้นไป
             </li>
             <li className={checks.uppercase ? "text-green-600" : "text-red-600"}>
               • ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ (A-Z)

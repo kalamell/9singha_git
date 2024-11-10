@@ -132,7 +132,7 @@ export default function Agent() {
   const [resetAddr3, setResetAddr3] = useState(false);
   const [resetAddr4, setResetAddr4] = useState(false);
 
-  const { user, token, setUser } = useStore();
+  const { user, token, setUser, setToken } = useStore();
   const { createAgent, updateDocument } = agentStore();
   const { getMe } = meStore();
 
@@ -148,6 +148,11 @@ export default function Agent() {
                 router.push('/agent/registered');
             }
         } else {
+          if (!user.verify_at) {
+            setUser(null);
+            setToken(null);
+            router.push('/register')
+          }
           setIsLoading(false);
             
         }
@@ -1208,6 +1213,7 @@ export default function Agent() {
                   }}
                   value={formData.refer_code}
                   required={false}
+                  maxlength={15}
                 />
               </div>
             </FormCard>
