@@ -292,7 +292,7 @@ export default function Compares({ car, data, items, }) {
                   <Link
                     href="javascript:void(0)"
                     onClick={() => {
-                      handleSupport(carid, item._id.$oid);
+                      handleSupport(car?._id, item._id.$oid);
                     }}
 
                     className="flex justify-center items-center rounded-[50px] font-athitiSemiBold text-lg bg-[#06C755] text-white leading-[24px] py-2.5 px-1.5"
