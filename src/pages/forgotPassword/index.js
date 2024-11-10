@@ -8,7 +8,7 @@ import ButtonBrown from "@/app/components/button/btn-brown";
 export default function ForgotPassword({ handleKeyPress }) {
   const [telephoneNumber, setTelephoneNumber] = useState("");
   const [validateTelephoneNumber, setValidateTelephoneNumber] = useState(null);
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
 
   const handleTelephoneNumber = (value) => {
     setTelephoneNumber(value);
