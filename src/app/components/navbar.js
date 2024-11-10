@@ -135,7 +135,7 @@ export default function Navbar() {
 
                         <>
                       <img 
-                         src={user.line.pictureUrl} alt="Profile Avatar" 
+                         src={`${user.line.pictureUrl}`} alt="Profile Avatar" 
                           className="w-[38px] h-[38px] rounded-full border-2 border-black " />
                       </>
                       
@@ -260,20 +260,35 @@ export default function Navbar() {
               }}
             >
               <div className="flex items-center gap-x-3">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M31.9999 16C31.9999 24.8366 24.8365 32 16 32C7.16343 32 0 24.8366 0 16C0 7.16344 7.16343 0 16 0C24.8365 0 31.9999 7.16344 31.9999 16ZM20 10C20 12.2091 18.2091 14 16 14C13.7908 14 12 12.2091 12 10C12 7.79086 13.7908 6 16 6C18.2091 6 20 7.79086 20 10ZM15.9998 18C11.9648 18 8.48787 20.3899 6.90745 23.8314C9.10804 26.3841 12.3653 28 15.9999 28C19.6345 28 22.8917 26.3841 25.0923 23.8316C23.5119 20.39 20.035 18 15.9998 18Z"
-                    fill="#181B31"
-                  />
-                </svg>
+              {
+                      user.line.pictureUrl ? (
+
+                        <>
+                      <img 
+                         src={`${user.line.pictureUrl}`} alt="Profile Avatar" 
+                          className="w-[38px] h-[38px] rounded-full border-2 border-black " />
+                      </>
+                      
+                      ) : (
+                        <>
+                        
+                       
+                        <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M31.9999 16C31.9999 24.8366 24.8365 32 16 32C7.16343 32 0 24.8366 0 16C0 7.16344 7.16343 0 16 0C24.8365 0 31.9999 7.16344 31.9999 16ZM20 10C20 12.2091 18.2091 14 16 14C13.7908 14 12 12.2091 12 10C12 7.79086 13.7908 6 16 6C18.2091 6 20 7.79086 20 10ZM15.9998 18C11.9648 18 8.48787 20.3899 6.90745 23.8314C9.10804 26.3841 12.3653 28 15.9999 28C19.6345 28 22.8917 26.3841 25.0923 23.8316C23.5119 20.39 20.035 18 15.9998 18Z"
+                          fill="#181B31"
+                        />
+                        </svg>
+                        </>
+                      )}
 
                 <p className="font-athitiSemiBold text-xl leading-[40px]">
                   {user ? user.name : <Link href={`/login`}>เข้าสู่ระบบ</Link>}
