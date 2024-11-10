@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-export default function Complete({ id, isOpenWarning, textWarning }) {
+export default function Complete({ id, isOpenWarning, textWarning, closeModel }) {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (isOpenWarning) {
@@ -19,6 +19,7 @@ export default function Complete({ id, isOpenWarning, textWarning }) {
     if (e.target.id === `popup-modal-${id}` || e.target.id === "close-button") {
       setIsOpen(false);
       document.getElementById(`popup-modal-${id}`).classList.add("hidden");
+      closeModel(false);
     }
   };
 

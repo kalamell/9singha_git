@@ -25,9 +25,10 @@ export default function Login() {
   const [validateOtp, setValidateOtp] = useState(null);
   const [tempUser, setTempUser] = useState(null);
 
+
   const router = useRouter();
 
-  const { setToken, setUser } = useStore();
+  const { setToken, setUser, setCom} = useStore();
 
   const handleTelephoneNumber = (value) => {
     setTelephoneNumber(value);
@@ -136,6 +137,7 @@ export default function Login() {
   };
 
   useEffect(() => {
+    setCom(null);
     if (isOpenWarning) {
       setIsOpenWarning(false);
     }

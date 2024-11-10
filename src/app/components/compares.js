@@ -4,6 +4,8 @@ import ButtonBrown from "@/app/components/button/btn-brown";
 import ButtonLine from "../components/button/btn-line";
 import useCompareStore from "@/store/compareStore";
 import Warning from "@/app/components/warning";
+import Complete from "@/app/components/complete";
+
 import applicationStore from "@/store/applicationStore";
 import { useRouter } from "next/router";
 
@@ -14,11 +16,18 @@ export default function Compares({ car, data, items, }) {
 
   const { user, cc } = useStore();
   const { carid } = useCompareStore();
+
   const [isOpenWarning, setIsOpenWarning] = useState(false);
   const [textWarning, setTextWarning] = useState("");
+
+
+  const [isOpenComplete, setIsOpenComplete] = useState(false);
+  const [textComplete, setTextComplete] = useState("");
+
+
   const { selectedItems, addItem, removeItem } = useCompareStore();
 
-  const { createApplication } = applicationStore();
+  const { createApplication, createSupport } = applicationStore();
 
   const filterclass = {
     1: "1",
@@ -84,6 +93,40 @@ export default function Compares({ car, data, items, }) {
     }
   };
 
+  const handleSupport = async (car_id, package_id) => {
+    setIsLoading(package_id);
+    try {
+      
+      const creaetAppReponse = await createApplication(car_id, package_id);
+
+      if (creaetAppReponse) {
+        const support = await createSupport(creaetAppReponse.data._id);
+        if (support) {
+
+          setIsOpenComplete(true);
+          setTextComplete("กรุณารอเจ้าหน้าที่ติดต่อกลับ");
+          setIsLoading(false);
+
+        } else {
+          setIsOpenWarning(true);
+          setTextWarning("ไม่สามารถทำรายการได้");
+          setIsLoading(false);
+
+        }
+        
+      } else {
+
+        setIsOpenWarning(true);
+        setTextWarning("ไม่สามารถทำรายการได้");
+        setIsLoading(false);
+
+      }
+    } catch (e) {
+      router.push('/login');
+      
+    }
+  };
+
   return (
     <>
       <Warning
@@ -92,6 +135,14 @@ export default function Compares({ car, data, items, }) {
         textWarning={textWarning}
         closeModel={() => setIsOpenWarning(false)}
       />
+
+      <Complete
+        id="completeUser"
+        isOpenWarning={isOpenComplete}
+        textWarning={textComplete}
+        closeModel={() => setIsOpenComplete(false)}
+      />
+
 
       <div className="text-center overflow-x-auto">
         <div
@@ -239,7 +290,11 @@ export default function Compares({ car, data, items, }) {
                     ) : (
 
                   <Link
-                    href="#"
+                    href="javascript:void(0)"
+                    onClick={() => {
+                      handleSupport(carid, item._id.$oid);
+                    }}
+
                     className="flex justify-center items-center rounded-[50px] font-athitiSemiBold text-lg bg-[#06C755] text-white leading-[24px] py-2.5 px-1.5"
                   >
                     <Image
@@ -249,7 +304,7 @@ export default function Compares({ car, data, items, }) {
                       alt="line"
                       priority={true}
                     />
-                    ซื้อผ่านเจ้าหน้าที่
+                    {isLoading == item._id?.$oid ? "Loading" : "ซื้อผ่านเจ้าหน้าที่"}
                   </Link>
                     )}
                  

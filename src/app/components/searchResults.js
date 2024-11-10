@@ -10,6 +10,7 @@ import Router, { useRouter } from "next/router";
 import axios from "axios";
 import useStore from "@/store/store";
 import Warning from "@/app/components/warning";
+import Complete from "@/app/components/complete";
 import applicationStore from "@/store/applicationStore";
 import useCompareStore from "@/store/compareStore";
 import usePackageStore from "@/store/packageStore";
@@ -31,10 +32,15 @@ export default function SearchResults({
 }) {
   const [isOpenWarning, setIsOpenWarning] = useState(false);
   const [textWarning, setTextWarning] = useState("");
+
+  const [isOpenComplete, setIsOpenComplete] = useState(false);
+  const [textComplete, setTextComplete] = useState("");
+
+
   const { selectedItems, addItem, removeItem } = useCompareStore();
 
   const [datap, setDatap] = useState(packages);
-  const { createApplication } = applicationStore();
+  const { createApplication, createSupport} = applicationStore();
   //const { packages, fetchPackages} = usePackageStore();
 
 
@@ -186,6 +192,45 @@ export default function SearchResults({
     }
   };
 
+  const handleSupport = async (car_id, package_id) => {
+    setIsLoading(package_id);
+    try {
+      //setIsOpenComplete(true);
+      //setTextComplete("รอเจ้าหน้าที่ติดต่อกลับ");
+      //setIsOpenComplete(false);
+
+      const creaetAppReponse = await createApplication(car_id, package_id);
+
+      if (creaetAppReponse) {
+        const support = await createSupport(creaetAppReponse.data._id);
+        if (support) {
+
+          setIsOpenComplete(true);
+          setTextComplete("กรุณารอเจ้าหน้าที่ติดต่อกลับ");
+          setIsLoading(false);
+
+        } else {
+          setIsOpenWarning(true);
+          setTextWarning("ไม่สามารถทำรายการได้");
+          setIsLoading(false);
+
+        }
+        
+      } else {
+        setIsOpenWarning(true);
+        setTextWarning("ไม่สามารถทำรายการได้");
+        setIsLoading(false);
+
+      }
+    } catch (e) {
+      router.push('/login');
+      //alert("มีข้อผิดพลาด");
+     // setIsOpenWarning(true);
+      //setTextWarning("ขออภัย มีข้อผิดพลาด");
+      //setIsLoading(false);
+    }
+  };
+
   const handleSelect = (item, master) => {
     if (selectedItems.find((i) => i._id.$oid === item._id.$oid)) {
       removeItem(item);
@@ -271,7 +316,17 @@ export default function SearchResults({
         id="validateUser"
         isOpenWarning={isOpenWarning}
         textWarning={textWarning}
+        closeModel={() => setIsOpenWarning(false)}
       />
+
+    <Complete
+        id="completeUser"
+        isOpenWarning={isOpenComplete}
+        textWarning={textComplete}
+        closeModel={() => setIsOpenComplete(false)}
+      />
+
+
 
       <div className="flex max-xl:flex-col max-xl:gap-[12px] items-center justify-between pb-9 max-md:w-[85%] max-md:mx-auto">
         <p className="font-athitiMedium text-lg leading-[22px] text-[#111827]">
@@ -510,7 +565,10 @@ export default function SearchResults({
                                   ) : (
 
                                 <Link
-                                  href="#"
+                                  href="javascript:void(0)"
+                                  onClick={() => {
+                                    handleSupport(carid, _item._id.$oid);
+                                  }}
                                   className="flex justify-center items-center rounded-[50px] font-athitiSemiBold text-lg bg-[#06C755] text-white leading-[24px] py-2.5 px-1.5"
                                 >
                                   <Image
@@ -520,7 +578,9 @@ export default function SearchResults({
                                     alt="line"
                                     priority={true}
                                   />
-                                  ซื้อผ่านเจ้าหน้าที่
+                                  {isLoading == _item._id?.$oid
+                                    ? "Loading"
+                                    : "ซื้อผ่านเจ้าหน้าที่"}
                                 </Link>
                                 )
                               }
