@@ -131,7 +131,7 @@ export default function Navbar() {
                     onClick={() => handleSelect()}
                   >
                     {
-                      user.line.pictureUrl ? (
+                      user?.line && user?.line?.pictureUrl ? (
 
                         <>
                       <img 
@@ -261,7 +261,7 @@ export default function Navbar() {
             >
               <div className="flex items-center gap-x-3">
               {
-                      user.line.pictureUrl ? (
+                      user?.line && user?.line?.pictureUrl ? (
 
                         <>
                       <img 
