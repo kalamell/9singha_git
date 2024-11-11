@@ -170,13 +170,6 @@ export default function Register() {
 
     accept == true ? setValidateAccept(false) : setValidateAccept(true);
 
-    //setTextWarning('กรุณาตรวจสอบ ข้อมูลการลงทะเบียน');
-    //setIsOpenWarning(!isOpenWarning);
-//
-    
-
-
-
     let __token = "";
 
     console.log(validateName, validateEmail, validateAccept);

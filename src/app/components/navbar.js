@@ -24,36 +24,62 @@ export default function Navbar() {
     closeDropdown();
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (out) {
-      if (!useStore.getState().user) {
-        setOut(false);
-        router.push('/');
-      }
-      
-    }
-  }, [out]);
+        console.log("OUT : ", out);
 
-  const logOut = () => {
-    setUser(null);
-    setToken(null);
-    setCom(null);
-    setOut(true);
-    
-    //router.push("/");
+        // Perform necessary actions based on user state
+        if (!user) {
+            // Add any additional logic if needed
+        }
+
+        // Batch state updates
+        setOut(false);
+        setUser(null);
+        setToken(null);
+
+        // Use router.replace to prevent adding a new entry in the history stack
+        router.replace('/');
+    }
+}, [out, user, router, setOut, setUser, setToken]);
+*/
+
+  const logOut = async () => {
+
+    try {
+      const response = await fetch('/api/logout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+          // Clear user state and token in Zustand
+          setUser(null);
+          setToken(null);
+
+          // Redirect to login or home page
+          router.push('/');
+      } else {
+          console.error('Failed to log out:', response.statusText);
+      }
+  } catch (error) {
+      console.error('Logout error:', error);
+  }
   };
 
 
   useEffect(() => {
+
     if (
       router.asPath !== "/login" &&
       router.asPath !== "/register" &&
-      router.asPath !== "/notRegister"
+      router.asPath !== "/notRegister" &&
+      router.asPath !== "/forgotPassword"
     ) {
       sessionStorage.setItem("prevPath", router.asPath);
     }
 
-    console.log(user);
+    //console.log(user);
   }, [router, user]);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -323,7 +349,7 @@ export default function Navbar() {
                   )}
 
                   <Link
-                    href="#"
+                    href="/forgotPassword"
                     className="font-athitiSemiBold text-xl leading-[40px]"
                   >
                     เปลี่ยนรหัสผ่าน
@@ -369,7 +395,7 @@ export default function Navbar() {
               </Link>
                   )}
 
-              <Link className="pl-6 pr-11 hover:text-[#984333]" href="#3">
+              <Link className="pl-6 pr-11 hover:text-[#984333]" href="/forgotPassword">
                 เปลี่ยนรหัสผ่าน
               </Link>
               <Link

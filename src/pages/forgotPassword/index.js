@@ -1,14 +1,56 @@
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputCheck from "../../app/components/inputCheck";
+import axios from "axios";
+import useStore from "@/store/store";
+import { useRouter } from "next/router";
 import TemplateLogin from "@/app/components/templateComponent/login";
 import ButtonBrown from "@/app/components/button/btn-brown";
+import Checkbox from "@/app/components/textComponent/checkbox";
+import { useStepContext } from "@mui/material";
 
-export default function ForgotPassword({ handleKeyPress }) {
+import Warning from "@/app/components/warning";
+
+export default function ForgotPassword() {
   const [telephoneNumber, setTelephoneNumber] = useState("");
   const [validateTelephoneNumber, setValidateTelephoneNumber] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(1);
+  const [refCode, setRefCode] = useState("");
+  const [token, _setToken] = useState("");
+  const [otp, setOtp] = useState("");
+  const [validateOtp, setValidateOtp] = useState(null);
+  const [tempUser, setTempUser] = useState(null);
+  const [textWarning, setTextWarning] = useState('');
+  const [isOpenWarning, setIsOpenWarning] = useState(false);
+
+  const router = useRouter();
+
+  const { setToken, setUser, setCom } = useStore();
+  
+
+  const handleTelephoneNumber = (value) => {
+    setTelephoneNumber(value);
+    setValidateTelephoneNumber(true);
+  };
+
+  const handlePassword = (value) => {
+    setPassword(value);
+    setValidatePassword(true);
+  };
+
+  useEffect(() => {
+    setUser(null);
+    setToken(null);
+    setCom(null);
+
+    if (isOpenWarning) {
+      setIsOpenWarning(false);
+    }
+  }, [isOpenWarning]);
+
 
   const [validatePassword, setValidatePassword] = useState(null);
   const [validateCfPassword, setValidateCfPassword] = useState(null);
@@ -16,31 +58,113 @@ export default function ForgotPassword({ handleKeyPress }) {
   const [password, setPassword] = useState("");
   const [cfpassword, setCfPassword] = useState("");
 
-  const handleTelephoneNumber = (value) => {
-    setTelephoneNumber(value);
-    setValidateTelephoneNumber(true);
-  };
 
-  const onClickSubmit = () => {
+  const onClickSubmit = async () => {
     telephoneNumber == "" ? setValidateTelephoneNumber(false) : "";
-    let _step = step;
-    _step++;
-    if (_step == 5) {
-      _step = 1;
+    setIsLoading(true);
+    let _token = '';
+    if (telephoneNumber !== "") {
+
+      try {
+        
+        const loginResponse = await axios.post("/api/forget", { mobile: telephoneNumber });
+      
+        if (loginResponse.status === 200) {
+          setToken(loginResponse.data.access_token);
+          _setToken(loginResponse.data.access_token);
+          const _token = loginResponse.data.access_token;
+
+          
+          const responseProfile = await axios.post("/api/me", { token: _token });
+      
+          if (loginResponse.data.verify_at == null) {
+            setTempUser(responseProfile.data.data);
+      
+            // Request OTP
+            const profileResponse = await axios.post("/api/request-otp", { token: _token });
+      
+            if (profileResponse.status === 200 && profileResponse.data.status === "success") {
+              setOtp('');
+              setRefCode(profileResponse.data.ref);
+              setStep(2);
+            } else {
+              throw new Error("Request OTP failed");
+            }
+          } else {
+            /*
+            setUser(responseProfile.data.data);
+            const prevPath = sessionStorage.getItem('prevPath') || '/';
+            router.push(prevPath);
+            sessionStorage.removeItem('prevPath');
+            */
+           router.push('/login');
+          }
+        
+        }
+        
+
+      } catch (e) {
+        console.error(e);
+        setIsOpenWarning(true);
+        setTextWarning('กรุณาตรวจสอบ ไม่พบข้อมูลการเป็นสมาชิก')
+
+        //alert("ไม่พบข้อมูลของท่าน");
+      }
+      
     }
-    setStep(_step);
+    setIsLoading(false);
   };
 
-  const handlePassword = (value) => {
-    setPassword(value);
-    if (value !== "") {
-      checkPassword(value)
-        ? setValidatePassword(true)
-        : setValidatePassword(false);
+  const handleOtp = (value) => {
+    setOtp(value);
+    if (value === "") {
+      setValidateOtp(false);
     } else {
-      setValidatePassword(false);
+      setValidateOtp(true);
     }
   };
+
+  const onClickSubmitOtp = async () => {
+    setIsLoading(true);
+    otp === "" ? setValidateOtp(false) : "";
+
+    if (validateOtp) {
+      try {
+        await axios
+          .post("/api/otp-verify", { code: otp, ref: refCode, token })
+          .then((responseVerify) => {
+            if (
+              responseVerify.status === 200 &&
+              responseVerify.data.data.status === "success"
+            ) {
+              //setUser(tempUser);
+              /*const prevPath = sessionStorage.getItem('prevPath') || '/';
+              router.push(prevPath);
+              sessionStorage.removeItem('prevPath');
+              */
+
+              setStep(3);
+
+              
+
+            } else {
+              setIsOpenWarning(true);
+              setTextWarning('กรุณาตรวจสอบเลข OTP');
+              throw new Error("vertify otp failed");
+              
+            }
+          });
+      } catch (e) {
+        console.log("ERROR : ", e);
+        //alert(e.response?.data.message);
+        setIsOpenWarning(true);
+        setTextWarning('กรุณาตรวจสอบเลข OTP')
+      }
+    }
+
+    setIsLoading(false);
+  };
+
 
   const handleCfPassword = (value) => {
     setCfPassword(value);
@@ -75,56 +199,139 @@ export default function ForgotPassword({ handleKeyPress }) {
     return true;
   };
 
+  const onClickChange = async () => {
+    
+   
+    password == "" ? setValidatePassword(false) : "";
+    cfpassword == "" ? setValidateCfPassword(false) : "";
+
+    if (
+      validatePassword &&
+      validateCfPassword 
+    ) {
+      //setStep(2);
+      try {
+        setIsLoading(true);
+        
+        let registerdata = {
+          password,
+          password_confirmation: cfpassword,
+          token
+        };
+
+
+        await axios
+          .post("/api/password", registerdata)
+          .then((registerResponse) => {
+            console.log('xxxxx', registerResponse);
+            
+            if (
+              registerResponse.status === 200 &&
+              registerResponse.data.data.status === "success"
+            ) {
+
+              setStep(4);
+
+            } else {
+             
+              setTextWarning('กรุณาตรวจสอบ ข้อมูลการลงทะเบียน');
+              setIsOpenWarning(true);
+            }
+            
+          });
+          
+      } catch (e) {
+        console.log('>>> ; ', e);
+        //alert("กรุณาตรวจสอบ มีการลงทะเบียนแล้ว");
+        
+        setTextWarning('กรุณาตรวจสอบ มีการลงทะเบียนแล้ว');
+        setIsOpenWarning(true);
+        
+      }
+    
+    }
+
+
+    setIsLoading(false);
+  };
+
   return (
-    <TemplateLogin
-      title="ลืมรหัสผ่าน"
-      subTitle={`${
-        step === 1
-          ? "กรอกเบอร์โทรศัพท์ของคุณเพื่อยืนยัน OTP ทาง SMS"
-          : step === 2
-          ? "กรอกรหัส OTP ของคุณ"
-          : step === 3 || step === 4
-          ? "กำหนดรหัสผ่านใหม่"
-          : null
-      }`}
-    >
-      <div className="flex flex-col gap-y-4">
+    <>
+      <Head>
+        <title>ลืมรหัสผ่าน</title>
+      </Head>
+
+
+      <Warning
+        id="validateUser"
+        isOpenWarning={isOpenWarning}
+        textWarning={textWarning}
+        closeModel={() => setIsOpenWarning(false)}
+      />
+
+
+      <TemplateLogin
+        title="ลืมรหัสผ่าน"
+        subTitle="กรอกเบอร์โทรศัพท์ของคุณเพื่อยืนยัน OTP ทาง SMS"
+      >
         {step === 1 && (
-          <>
+        <>
+          <div className="flex flex-col gap-y-4">
             <InputCheck
               type="text"
               title="เบอร์โทรศัพท์"
               placeholderBottom="โปรดกรอกเบอร์โทรศัพท์"
-              valid=""
-              onChange=""
+              valid={validateTelephoneNumber}
+              onChange={handleTelephoneNumber}
               onKeyPress
               maxlength="10"
+              name="mobile"
             />
 
-            <ButtonBrown text="รับรหัส OTP" onClick={onClickSubmit} />
-          </>
-        )}
+            
 
-        {step === 2 && (
-          <>
+          
+
+            <ButtonBrown
+              isLoading={isLoading}
+              text="เข้าสู่ระบบ"
+              onClick={onClickSubmit}
+            />
+          </div>
+          
+        </>
+        )} 
+        { step == 2 && (
+          
+          <div className="flex flex-col gap-y-4">
             <InputCheck
               type="text"
               title={
                 <>
-                  ยืนยันรหัส โปรดกรอกรหัส OTP (REF:SFMAQR)
-                  <br /> ที่ได้รับทาง SMS ที่ 083-XXX-5566
+                  ยืนยันรหัส โปรดกรอกรหัส OTP (REF: {refCode.toUpperCase()})
+                  <br />
+                  ที่ได้รับทาง SMS ที่
+                  {telephoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1-XXX-$3")}
                 </>
               }
-              placeholder="รหัส OTP"
+              placeholder=""
               placeholderBottom="รหัส OTP มีอายุการใช้งาน 5 นาที"
-              required={false}
-              valid=""
-              onChange=""
-              onKeyPress
-              maxlength="10"
+              name="otp"
+              maxlength={10}
+              initialValue=""
+              value={otp}
+              valid={validateOtp}
+              onChange={handleOtp}
+              
             />
-            <ButtonBrown text="ยืนยัน OTP" onClick={onClickSubmit} />
-          </>
+
+            <ButtonBrown
+              isLoading={isLoading}
+              text="ยืนยัน OTP"
+              onClick={onClickSubmitOtp}
+            />
+
+          </div>
         )}
 
         {step === 3 && (
@@ -155,7 +362,9 @@ export default function ForgotPassword({ handleKeyPress }) {
                 maxlength={25}
               />
 
-            <ButtonBrown text="เปลี่ยนรหัสผ่าน" onClick={onClickSubmit} />
+              <br />
+
+            <ButtonBrown className="mt-4" text="เปลี่ยนรหัสผ่าน" onClick={onClickChange} />
           </>
         )}
 
@@ -177,7 +386,8 @@ export default function ForgotPassword({ handleKeyPress }) {
             />
           </>
         )}
-      </div>
-    </TemplateLogin>
+
+      </TemplateLogin>
+    </>
   );
 }

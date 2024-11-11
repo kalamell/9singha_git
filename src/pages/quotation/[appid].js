@@ -138,7 +138,7 @@ function BlankPage( { appid }) {
       <button
         onClick={() => window.print()}
           type="button"
-          className="fill-[#984333] print:hidden absolute right-[50px] bg-[#ffff] hover:fill-[#ffffff] hover:bg-[#984333] flex max-md:basis-1/2 max-w-[200px] justify-center items-center font-athitiSemiBold text-sm bg-[#ffffff] text-[#984333] hover:text-[#ffffff] leading-[20px] border border-[#984333] rounded-[36px] py-[7px] px-[18px] gap-x-1.5"
+          className="fill-[#984333] print:hidden absolute right-[1.5em] bg-[#ffff] hover:fill-[#ffffff] hover:bg-[#984333] flex max-md:basis-1/2 max-w-[200px] justify-center items-center font-athitiSemiBold text-sm bg-[#ffffff] text-[#984333] hover:text-[#ffffff] leading-[20px] border border-[#984333] rounded-[36px] py-[7px] px-[18px] gap-x-1.5"
         >
           <svg
             width="24"
@@ -156,7 +156,7 @@ function BlankPage( { appid }) {
               stroke-linejoin="round"
             />
           </svg>
-          <p>พิมพ์ใบเสนอราคา</p>
+          <p className="max-md:hidden">พิมพ์ใบเสนอราคา</p>
         </button>
 
 
