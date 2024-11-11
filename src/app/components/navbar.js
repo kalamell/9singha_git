@@ -59,7 +59,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
-    if (window.innerWidth < 768) {
+    /*if (window.innerWidth < 768) {
       router.push(
         "line://oaMessage/@245prkiq/%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88"
       );
@@ -67,6 +67,11 @@ export default function Navbar() {
       setIsOpen(true);
       document.getElementById("popup-modal").classList.remove("hidden");
     }
+      */
+
+    router.push(
+      "line://oaMessage/@245prkiq/%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88"
+    );
   };
 
   const closeModal = (e) => {
