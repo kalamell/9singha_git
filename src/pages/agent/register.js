@@ -738,7 +738,7 @@ export default function Agent() {
   return (
     <>
       <Head>
-        <title>สมัครสมาชิก</title>
+        <title>สมัครสมาชิก ๙ สิงห์โบรกเกอร์</title>
       </Head>
       <Warning
         id="validateAgentForm"
@@ -749,7 +749,7 @@ export default function Agent() {
       <div className="bg-singha max-xl:bg-[length:auto_60%]  py-9 max-md:px-3">
         <div className="container mx-auto md:p-[24px]">
           <h1 className="text-[#181B31] font-athitiBold text-[36px] leading-[48px] text-center">
-            <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์ สมาชิก
+            สมัครสมาชิก <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์
           </h1>
           <p className="text-[#181B31] pb-[12px] font-athitiMedium text-[20px] leading-[30px] text-center">
             กรอกข้อมูลของคุณเพื่อสมัครสมาชิก
