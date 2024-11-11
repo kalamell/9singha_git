@@ -738,7 +738,7 @@ export default function Agent() {
   return (
     <>
       <Head>
-        <title>สมัครตัวแทน</title>
+        <title>สมัครสมาชิก</title>
       </Head>
       <Warning
         id="validateAgentForm"
@@ -1053,6 +1053,7 @@ export default function Agent() {
                     handleOptionChange("oic.card", value);
                     //console.log(value);
                   }}
+                  maxlength={15}
                 />
 
                 <InputCheck
