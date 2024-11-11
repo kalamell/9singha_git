@@ -10,6 +10,12 @@ export default function ForgotPassword({ handleKeyPress }) {
   const [validateTelephoneNumber, setValidateTelephoneNumber] = useState(null);
   const [step, setStep] = useState(1);
 
+  const [validatePassword, setValidatePassword] = useState(null);
+  const [validateCfPassword, setValidateCfPassword] = useState(null);
+
+  const [password, setPassword] = useState("");
+  const [cfpassword, setCfPassword] = useState("");
+
   const handleTelephoneNumber = (value) => {
     setTelephoneNumber(value);
     setValidateTelephoneNumber(true);
@@ -23,6 +29,50 @@ export default function ForgotPassword({ handleKeyPress }) {
       _step = 1;
     }
     setStep(_step);
+  };
+
+  const handlePassword = (value) => {
+    setPassword(value);
+    if (value !== "") {
+      checkPassword(value)
+        ? setValidatePassword(true)
+        : setValidatePassword(false);
+    } else {
+      setValidatePassword(false);
+    }
+  };
+
+  const handleCfPassword = (value) => {
+    setCfPassword(value);
+    if (value !== password) {
+      setValidateCfPassword(false);
+    } else {
+      if (value !== "") {
+        checkPassword(value)
+          ? setValidateCfPassword(true)
+          : setValidateCfPassword(false);
+      } else {
+        setValidateCfPassword(false);
+      }
+    }
+  };
+
+
+  const checkPassword = (value) => {
+    if (!value.trim()) {
+      return false;
+    } else if (value.length < 8) {
+      return false;
+    } else if (!/(?=.*[a-z])/.test(value)) {
+      return false;
+    } else if (!/(?=.*[A-Z])/.test(value)) {
+      return false;
+    } else if (!/(?=.*\d)/.test(value)) {
+      return false;
+    } else if (!/(?=.*[@$!%*#?&])/.test(value)) {
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -80,33 +130,31 @@ export default function ForgotPassword({ handleKeyPress }) {
         {step === 3 && (
           <>
             <InputCheck
-              type="password"
-              title="รหัสผ่านใหม่"
-              placeholder="รหัสผ่านใหม่"
-              placeholderBottom={
-                <>
-                  โปรดกรอกรหัสผ่านยาว 6-10 ตัวอักษร
-                  <br />
-                  มีตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ และพิมพ์เล็ก (A-Z, a-z)
-                  <br /> มีตัวเลข (0-9) และอักขระพิเศษ
-                  <br className="md:hidden" />
-                  (@ # - ! ,)
-                </>
-              }
-              valid=""
-              onChange=""
-              onKeyPress=""
-            />
+                type="password"
+                title="กำหนดรหัสผ่าน"
+                valid={validatePassword}
+                onChange={handlePassword}
+                name="password"
+                value={password}
+                 placeholderBottom="โปรดกรอกรหัสผ่าน"
+                 showCheck={true}
+                 maxlength={25}
+              />
 
-            <InputCheck
-              type="password"
-              title="ยืนยันรหัสผ่านใหม่"
-              placeholder="ยืนยันรหัสผ่านใหม่"
-              placeholderBottom=""
-              valid=""
-              onChange=""
-              onKeyPress=""
-            />
+              <InputCheck
+                type="password"
+                title="ยืนยันรหัสผ่าน"
+                placeholder=""
+                placeholderBottom="โปรดกรอกรหัสผ่าน"
+                valid={validateCfPassword}
+                onChange={handleCfPassword}
+                name="cfpassword"
+                value={cfpassword}
+                showCheck={true}
+                password={password}
+                maxlength={25}
+              />
+
             <ButtonBrown text="เปลี่ยนรหัสผ่าน" onClick={onClickSubmit} />
           </>
         )}
