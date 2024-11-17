@@ -39,9 +39,9 @@ export default function agentDone() {
         <>
         <div className="bg-singha max-xl:bg-[length:auto_60%] min-h-[calc(100vh_-_152px)]">
             <div className="container mx-auto w-[582px] max-md:w-full py-9">
-            <p className="font-athitiBold text-4xl max-md:text-3xl leading-[48px] max-md:leading-[38px] text-[#181B31] text-center">
-                <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์ สมาชิก
-            </p>
+            <h1 className="text-[#181B31] font-athitiBold text-[36px] leading-[48px] text-center">
+                สมัครสมาชิก <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์
+            </h1>
             <div className="pt-[24px] pb-6">
                 <div className="backdrop-opacity-10 backdrop-invert bg-white/80 rounded-3xl p-6 shadow-md">
                 <div className="bg-[#fff] rounded-xl p-6 flex flex-col gap-y-9">
@@ -67,9 +67,9 @@ export default function agentDone() {
         : (
             <div className="bg-singha max-xl:bg-[length:auto_60%] min-h-[calc(100vh_-_152px)]">
                 <div className="container mx-auto w-[582px] max-md:w-full py-9">
-                <p className="font-athitiBold text-4xl max-md:text-3xl leading-[48px] max-md:leading-[38px] text-[#181B31] text-center">
-                    <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์ สมาชิก
-                </p>
+                <h1 className="text-[#181B31] font-athitiBold text-[36px] leading-[48px] text-center">
+                สมัครสมาชิก <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์
+            </h1>
                 <div className="pt-[24px] pb-6">
                     <div className="backdrop-opacity-10 backdrop-invert bg-white/80 rounded-3xl p-6 shadow-md">
                     <div className="bg-[#fff] rounded-xl p-6 flex flex-col gap-y-9">
