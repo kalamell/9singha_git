@@ -1,74 +1,53 @@
 import Image from "next/image";
-export default function TermAndConditions() {
+import TemplateLogin from "@/app/components/templateComponent/login";
+import Link from "next/link";
+export default function TermAndCondigitons() {
   return (
     <>
       <div className="bg-singha max-xl:bg-[length:auto_40%] min-h-[calc(100vh_-_152px)] max-md:min-h-[calc(100vh_-_198px)] content-center">
         <div className="container mx-auto w-[800] max-md:w-full py-9 px-4">
+
+        <h1 className="text-[#181B31] font-athitiBold text-[36px] leading-[48px] text-center">
+        นโยบายและเงื่อนไขการยกเลิกกรมธรรม์
+          </h1>
          
         
-        <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg mt-10">
-        <h1 class="text-3xl font-bold text-center mb-6">Terms And  Conditions</h1>
+        <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg mt-10">
+        <p className="text-xl font-athitiSemiBold  mb-4">ท่านสามารถแจ้งยกเลิกกรมธรรม์ประกันภัยออนไลน์ที่ซื้อกับ บริษัท <span className="font-nineBold">๙</span> สิงห์โบรกเกอร์ จำกัด ได้ที่หมายเลขโทรศัพท์ <Link href="tel:022759119">02-275-9119</Link> (ในเวลาทำการ) โดยทางเจ้าหน้าที่จะเป็นผู้แจ้งรายละเอียดในการส่งเอกสารให้กับท่านได้รับทราบ</p>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">1. Introduction</h2>
-            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </section>
+       
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">2. Information We Collect</h2>
-            <ul class="list-disc list-inside text-gray-600">
-                <li>Personal information: name, email, address, etc.</li>
-                <li>Usage data: cookies, IP address, browser information.</li>
-                <li>Any other information you provide to us directly.</li>
+
+        <section className="mb-8">
+            <h2 className="text-2xl font-athitiSemiBold mb-2">เงื่อนไขการยกเลิกกรมธรรม์</h2>
+            
+            <p className="indent-6 text-xl font-athitiSemiBold mb-4">กรณีผู้เอาประกันภัยบอกยกเลิกกรมธรรม์</p>
+            <ul className="list-none list-inside text-xl font-athitiMedium pl-10 mb-4">
+                <li className="mb-0">- กรณีแจ้งยกเลิกกรมธรรม์ในวันเดียวกับที่ซื้อและแจ้งให้บริษัทฯทราบไม่เกิน 17.00 น. เมื่อบริษัทฯได้รับเอกสารพร้อมตรวจสอบความถูกต้องเรียบร้อยแล้ว จะดำเนินการประสานงานกับธนาคารเจ้าของบัตรเครดิตให้ปรับยอดคืนเครดิตให้กับท่าน ทั้งนี้เป็นไปตามเงื่อนไขของบริษัทฯ และธนาคารที่ท่านใช้บริการ</li>
+                <li className="mb-0">- กรณีแจ้งยกเลิกโดยที่กรมธรรม์ยังไม่เริ่มคุ้มครอง ท่านจะได้รับการคืนเบี้ยประกันภัยภายใน 7 วันทำการ ทั้งนี้หลังจากที่บริษัทฯได้รับเอกสารและตรวจสอบความถูกต้องเรียบร้อยแล้ว</li>
+                <li className="mb-0">- กรณีแจ้งยกเลิกโดยที่กรมธรรม์เริ่มความคุ้มครองแล้ว บริษัทฯจะคืนเบี้ยประกันภัยให้แก่ผู้เอาประกันภัย โดยหักเบี้ยประกันภัยตามระยะเวลาที่กรมธรรม์ใช้บังคับ แล้วคืนเบี้ยประกันภัยตามสัดส่วนให้ตรงตามเงื่อนไขของกรมธรรม์ โดยท่านจะได้รับการคืนเบี้ยประกันภัยภายใน 7 วันทำการ ทั้งนี้หลังจากที่บริษัทฯได้รับเอกสารและตรวจสอบความถูกต้องเรียบร้อยแล้ว</li>
+            
             </ul>
-        </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">3. How We Use Your Information</h2>
-            <p class="text-gray-600">
-                We use the information we collect to:
-            </p>
-            <ul class="list-disc list-inside text-gray-600">
-                <li>Provide, operate, and maintain our website.</li>
-                <li>Improve, personalize, and expand our website.</li>
-                <li>Understand and analyze how you use our website.</li>
+            <p className="indent-6 text-xl font-athitiSemiBold mb-4">กรณีบริษัทเป็นฝ่ายยกเลิกกรมธรรม์</p>
+            <ul className="list-none list-inside text-xl font-athitiMedium pl-10 mb-4">
+                <li className="mb-0">-	บริษัทฯจะส่งหนังสือบอกกล่าวไม่น้อยกว่า 30 วัน ทางไปรษณีย์ลงทะเบียนถึงผู้เอาประกันภัย และจะคืนเบี้ยประกันภัยให้แก่ผู้เอาประกันภัย โดยหักเบี้ยประกันภัยตามสัดส่วนที่ระบุตามเงื่อนไขกรมธรรม์</li>
             </ul>
+
         </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">4. Data Retention</h2>
-            <p class="text-gray-600">We retain your personal data only for as long as is necessary for the purposes set out in this Privacy Policy.</p>
+        <section className="mb-8">
+            <h2 className="text-2xl font-athitiSemiBold mb-2">หมายเหตุ</h2>
+            
+            <p className="text-xl font-athitiMedium mb-4">บริษัทฯขอสงวนสิทธิ์ในการเปลี่ยนแปลงเงื่อนไขโดยไม่ต้องแจ้งให้ทราบล่วงหน้า และการยกเลิกกรมธรรม์จะพิจารณาเป็นไปตามเงื่อนไขและข้อกำหนดของกรมธรรม์นั้นๆ ที่บริษัทฯได้จัดทำขึ้นและถือเป็นที่สิ้นสุด</p>
+
+            
+
         </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">5. Security</h2>
-            <p class="text-gray-600">
-                We strive to use commercially acceptable means to protect your Personal Data, but we cannot guarantee its absolute security.
-            </p>
-        </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">6. Your Rights</h2>
-            <ul class="list-disc list-inside text-gray-600">
-                <li>Right to access - You can request copies of your personal data.</li>
-                <li>Right to rectification - You can request that we correct any information you believe is inaccurate.</li>
-                <li>Right to erasure - You can request that we delete your personal data.</li>
-            </ul>
-        </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">7. Changes to This Privacy Policy</h2>
-            <p class="text-gray-600">
-                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
-            </p>
-        </section>
-
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-2">8. Contact Us</h2>
-            <p class="text-gray-600">
-                If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at privacy@example.com.
-            </p>
-        </section>
+        
     </div>
       
           
