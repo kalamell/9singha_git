@@ -1,9 +1,12 @@
 import Image from "next/image";
 import TemplateLogin from "@/app/components/templateComponent/login";
 import Link from "next/link";
+import Head from "next/head";
 export default function TermAndCondigitons() {
+
   return (
     <>
+        <Head><title>นโยบายและเงื่อนไขการยกเลิกกรมธรรม์</title></Head>
       <div className="bg-singha max-xl:bg-[length:auto_40%] min-h-[calc(100vh_-_152px)] max-md:min-h-[calc(100vh_-_198px)] content-center">
         <div className="container mx-auto w-[800] max-md:w-full py-9 px-4">
 
